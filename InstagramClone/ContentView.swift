@@ -9,13 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack {
+                NavView()
+                StoryListView()
+                Divider()
+                    .foregroundStyle(.red)
+                ForEach(0..<10) { item in
+                    PostView()
+                }
+                .padding(.vertical, 8)
+                Spacer()
+            }
         }
-        .padding()
     }
 }
 
